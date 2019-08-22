@@ -25,20 +25,44 @@ function is1To1000(start, end) {
     else return "数字不是1到1000之间";
 }
 
+// function createMultiplyTable(start, end) {
+//     let multiplyTable = [];
+//     for (let i = start; i <= end; i++) {
+//         for (let j = start; j <= i; j++) {
+//             multiplyTable += j + "*" + i + "=" + i * j;
+//             if (i !== j) {
+//                 multiplyTable += " "
+//             }
+//         }
+//         if (i < end) {
+//             multiplyTable += "\n";
+//         }
+//     }
+//     return multiplyTable;
+// }
+
 function createMultiplyTable(start, end) {
-    let multiplyTable = [];
+
+}
+
+function getItem(leftNum, rightNum) {
+    let seperate = leftNum === rightNum ? "" : "\t";
+    return `${leftNum} * ${rightNum} = ${leftNum * rightNum}${seperate}`;
+}
+
+function getLine(start, end) {
+    var lineResult = '';
     for (let i = start; i <= end; i++) {
-        for (let j = start; j <= i; j++) {
-            multiplyTable += j + "*" + i + "=" + i * j;
-            if (i !== j) {
-                multiplyTable += " "
-            }
-        }
-        if (i < end) {
-            multiplyTable += "\n";
-        }
+        let seperate = start === end ? "\n" : "";
+        lineResult = getItem(start,end) + seperate;
     }
-    return multiplyTable;
+}
+
+function generateTable(start,end){
+    var tableResult = '';
+    for (let i =start;i<=end;i++){
+
+    }
 }
 
 function testDemo(start, end) {
@@ -55,3 +79,5 @@ function testDemo(start, end) {
 }
 
 module.exports = testDemo;
+
+
