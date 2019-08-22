@@ -41,35 +41,35 @@ function is1To1000(start, end) {
 //     return multiplyTable;
 // }
 
-function createMultiplyTable(start, end) {
-
-}
 
 function getItem(leftNum, rightNum) {
-    let seperate = leftNum === rightNum ? "" : "\t";
-    return `${leftNum} * ${rightNum} = ${leftNum * rightNum}${seperate}`;
+    let seperate = leftNum === rightNum ? "" : " ";
+    return `${leftNum}*${rightNum}=${leftNum * rightNum}${seperate}`;
 }
 
 function getLine(start, end) {
     var lineResult = '';
     for (let i = start; i <= end; i++) {
-        let seperate = start === end ? "\n" : "";
-        lineResult = getItem(start,end) + seperate;
+        
+        lineResult += getItem(i,end) ;
     }
+    return lineResult
 }
 
 function generateTable(start,end){
     var tableResult = '';
     for (let i =start;i<=end;i++){
-
+        let seperate = i === end ? "" : "\n";
+        tableResult  += getLine(start,i)+seperate;
     }
+    return tableResult
 }
 
 function testDemo(start, end) {
     if (isStartLessEnd(start, end) == true) {
         if (isVaildNum(start, end) == true) {
             if (is1To1000(start, end) == true) {
-                return createMultiplyTable(start, end);
+                return generateTable(start, end);
             }
             else return is1To1000(start, end);
         }
